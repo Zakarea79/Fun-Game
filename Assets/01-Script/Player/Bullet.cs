@@ -6,14 +6,13 @@ public class Bullet : MonoBehaviour
 {
     void Start()
     {
-	    Invoke("DetoryBullet" , 2); 
+	    Destroy(gameObject , 2f); 
     }
 	[SerializeField] private int Speed = 3;
     void Update()
     {
 	    transform.Translate(Vector3.forward * Speed * Time.deltaTime);
     }
-	private void DetoryBullet(){Destroy(gameObject);}
 	protected void OnTriggerEnter(Collider other)
 	{
 		Destroy(gameObject);

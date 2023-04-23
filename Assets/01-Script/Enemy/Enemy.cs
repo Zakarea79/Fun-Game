@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
 				print("Play Die Animtion");
 				Live = false;
 				HPBAR.gameObject.SetActive(false);
+				GameObject.Find("Player").GetComponent<Player>().EnemyList.Remove(gameObject);
 				//After Die Animtion setActive False
 				gameObject.SetActive(false);
 			}
@@ -40,7 +41,14 @@ public class Enemy : MonoBehaviour
 	}
 	
 	private void truedmg(){dmg = true;}
-	
+
+
+
+    private void OnEnable()
+    {
+		GameObject.Find("Player").GetComponent<Player>().EnemyList.Add(gameObject);
+	}
+
 	protected void Start()
 	{
 		Live = true;
@@ -62,10 +70,10 @@ public class Enemy : MonoBehaviour
 			{
 				nav.destination = player.transform.position;
 				findPlayer = false;
-				if(anim.GetCurrentAnimatorStateInfo(0).IsName("idel") == false)
-				{
-					anim.SetTrigger("idel");
-				}
+				//if(anim.GetCurrentAnimatorStateInfo(0).IsName("idel") == false)
+				//{
+				//	//anim.SetTrigger("idel");
+				//}
 			}
 			else
 			{
@@ -74,11 +82,10 @@ public class Enemy : MonoBehaviour
 					nav.destination = transform.position;
 					findPlayer = true;
 				}
-				if(anim.GetCurrentAnimatorStateInfo(0).IsName("Attak") == false)
-				{
-					anim.SetTrigger("Attak");
-				}
-				
+				//if(anim.GetCurrentAnimatorStateInfo(0).IsName("Attak") == false)
+				//{
+				//	//anim.SetTrigger("Attak");
+				//}
 			}
 		}
 		else
@@ -100,7 +107,6 @@ public class Enemy : MonoBehaviour
 						pointG = null;
 						TimerSlip = 0;
 					}
-					
 				}
 				else
 				{

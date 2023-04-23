@@ -13,7 +13,6 @@ public class gun : MonoBehaviour
 	[SerializeField] private pointShot pointshot;
 	public void shotgun()
 	{
-		print("Works");
 		foreach (var item in pointshot.Bullet_Shot)
 		{
 			var b = Instantiate(pointshot.Bullet , item.position , item.rotation);
