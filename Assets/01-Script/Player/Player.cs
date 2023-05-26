@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
 				animPlayer.SetFloat("walk-" + gun  ,0);
 			}
 		}
-		if(System.Math.Abs(x) > .3 || System.Math.Abs(y) > .3)
+		if(System.Math.Abs(x) > .3f || System.Math.Abs(y) > .3f)
 		{
 			xmove = x;
 			ymove = y;
